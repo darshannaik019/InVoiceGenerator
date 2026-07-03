@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #e0e7ff;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  
+  --shadow-premium: 0 10px 30px -10px rgba(99, 102, 241, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 20px 40px -15px rgba(99, 102, 241, 0.15), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary font-sans antialiased selection:bg-primary/20 selection:text-primary-dark;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
+
+@layer components {
+  .card {
+    @apply bg-surface/80 backdrop-blur-md rounded-2xl shadow-premium border border-slate-100 p-6 transition-all duration-300 hover:shadow-hover;
+  }
+}
+
+@media print {
+  body {
+    background-color: white !important;
+  }
+  .print-hidden, header, aside, button, nav, select, .fixed {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .card {
+    box-shadow: none !important;
+    border: none !important;
+    background-color: transparent !important;
+  }
+  #invoice-template {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
