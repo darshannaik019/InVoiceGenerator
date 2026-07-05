@@ -28,8 +28,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/settings', settingsRoutes);
 
-// Serve static files from root dist directory
-const distPath = path.join(__dirname, '../../dist');
+// Serve static files from frontend dist directory
+const distPath = path.join(__dirname, '../../frontend/dist');
 app.use(express.static(distPath));
 
 // Fallback for SPA routing
